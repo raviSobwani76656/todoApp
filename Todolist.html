@@ -4,10 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>To Do List</title>
+
+    <link rel="stylesheet" href="TodoList.css">
 </head>
 <body>
-<input type="InputForTask" id="inputTaskField">
+<input type="InputForTask" id="inputTaskField" placeholder="Enter the Task">
 <input type="date" id="todoDate">
     <button id="addTaskBtn" onclick="addTask()"> Add Task</button>
     
@@ -15,49 +17,8 @@
 
 <div id="taskContainer"></div>
 
-    <script >
-  let taskList =[{
-    addedTask:"wash",
-    todoDate:'2011-02-20'    
-  }];
-
-      function addTask (){
-
-       let Task= document.querySelector("#inputTaskField");
-        let addedTask= Task.value.trim();
-
-        let todoDate = document.querySelector("#todoDate").value.trim();
-
-        
-if(addedTask!==""){
-taskList.push({addedTask, todoDate });
-    Task.value="";
-    console.log(taskList);
-    updateTaskDisplay();
-
-}
-    
-      }
-
-      function updateTaskDisplay() {
-      const taskContainer = document.querySelector("#taskContainer");
-      taskContainer.innerHTML = ""; 
-
-      for (let i = 0; i < taskList.length; i++) {
-        let todoObject = taskList[i];
-
-
-        const {addedTask, todoDate}= todoObject;
-
-    
-        let task = `<p>${addedTask} ${todoDate}<button
-            onclick= "taskList.splice(${i},1);
-            updateTaskDisplay();"
-            >Delete</button></p>`;
-        taskContainer.innerHTML += task;
-      }
-    }
-
+    <script src="Todolist.js" >
+  
 
     </script>
 </body>
